@@ -3,27 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BLL.EstructuraDatos; // Asegúrate de que esta referencia es correcta para tu Nodo<Zona>
+using BLL.Clases; // Asegúrate de que tus clases Zona, Boleto, etc. estén en este namespace
 
-namespace BLL
+namespace BLL.Clases
 {
-    // Clase Estadio que gestiona las zonas y la disponibilidad de asientos [cite: 10]
+    // Clase Estadio que gestiona las zonas y la disponibilidad de asientos
     public class Estadio
     {
-        // La lista enlazada para representar las zonas del estadio [cite: 6]
+        // La lista enlazada para representar las zonas del estadio
         private Nodo<Zona> cabezaZonas;
 
         public Estadio()
         {
             cabezaZonas = null;
             // Inicializar zonas del estadio al crear el objeto Estadio
-            // Puedes ajustar las capacidades según tus necesidades
-            AgregarZona(new Zona("VIP", 50)); // Capacidad de ejemplo
-            AgregarZona(new Zona("Tribuna", 200)); // Capacidad de ejemplo
-            AgregarZona(new Zona("General", 300)); // Capacidad de ejemplo
-            AgregarZona(new Zona("Mesas Platino", 20)); // Capacidad de ejemplo
+            // *** CAMBIO CRÍTICO AQUÍ: Pasa el parámetro 'esVIP' al constructor de Zona ***
+            // Ajusta las capacidades y el estado VIP según tus necesidades reales
+            AgregarZona(new Zona("VIP", 50, true)); // Esta zona es VIP
+            AgregarZona(new Zona("Tribuna", 200, false)); // Esta zona NO es VIP
+            AgregarZona(new Zona("General", 300, false)); // Esta zona NO es VIP
+            AgregarZona(new Zona("Mesas Platino", 20, true)); // Esta zona es VIP
         }
 
-        // Agrega una zona a la lista enlazada [cite: 6]
+        // Agrega una zona a la lista enlazada
         public void AgregarZona(Zona nuevaZona)
         {
             if (cabezaZonas == null)
@@ -41,8 +44,9 @@ namespace BLL
             }
         }
 
-        // Obtiene una zona por su nombre [cite: 6]
-        public Zona ObtenerZona(string nombreZona)
+        // Obtiene una zona por su nombre
+        // Renombrado de ObtenerZona a ObtenerZonaPorNombre para mayor claridad en el UI
+        public Zona ObtenerZonaPorNombre(string nombreZona)
         {
             Nodo<Zona> actual = cabezaZonas;
             while (actual != null)
@@ -56,17 +60,17 @@ namespace BLL
             return null; // Zona no encontrada
         }
 
-        // Retorna la cantidad de boletos disponibles para una zona específica [cite: 4]
+        // Retorna la cantidad de boletos disponibles para una zona específica
         public int VerificarDisponibilidadZona(string nombreZona)
         {
-            Zona zona = ObtenerZona(nombreZona);
+            Zona zona = ObtenerZonaPorNombre(nombreZona); // Usamos el método renombrado
             return zona != null ? zona.BoletosDisponibles : 0;
         }
 
         // Actualiza la disponibilidad de boletos de una zona
         public bool ActualizarDisponibilidad(string nombreZona, int cantidad, bool esCompra)
         {
-            Zona zona = ObtenerZona(nombreZona);
+            Zona zona = ObtenerZonaPorNombre(nombreZona); // Usamos el método renombrado
             if (zona != null)
             {
                 if (esCompra)
@@ -90,7 +94,7 @@ namespace BLL
         // La lógica de "no dejar 1 solo boleto" debe ser gestionada a nivel de la UI o antes de llamar aquí.
         public int ObtenerAsientoDisponible(string nombreZona)
         {
-            Zona zona = ObtenerZona(nombreZona);
+            Zona zona = ObtenerZonaPorNombre(nombreZona); // Usamos el método renombrado
             if (zona != null)
             {
                 return zona.AsignarAsiento();
@@ -101,7 +105,7 @@ namespace BLL
         // Libera un asiento específico en una zona (para cancelaciones/devoluciones)
         public void LiberarAsiento(string nombreZona, int asiento)
         {
-            Zona zona = ObtenerZona(nombreZona);
+            Zona zona = ObtenerZonaPorNombre(nombreZona); // Usamos el método renombrado
             if (zona != null)
             {
                 zona.LiberarAsiento(asiento);
@@ -119,6 +123,19 @@ namespace BLL
                 actual = actual.Siguiente;
             }
             return nombres;
+        }
+
+        // Dentro de la clase Estadio.cs, añade este método:
+        public List<Zona> ObtenerTodasLasZonas()
+        {
+            List<Zona> todasLasZonas = new List<Zona>();
+            Nodo<Zona> actual = cabezaZonas;
+            while (actual != null)
+            {
+                todasLasZonas.Add(actual.Data);
+                actual = actual.Siguiente;
+            }
+            return todasLasZonas;
         }
     }
 }
