@@ -4,6 +4,7 @@ using System.IO; // Asegúrate de tener este 'using' para operaciones de archivo
 using System.Linq;
 using System.Text;
 using BLL.Clases; // Para usar Transaccion, Boleto, Zona, etc.
+using Microsoft.VisualBasic.FileIO;
 
 namespace BLL.Utils // Tu namespace actual
 {
@@ -14,50 +15,68 @@ namespace BLL.Utils // Tu namespace actual
         private static string stadiumStateFilePath;
 
         // Guarda una transacción en el archivo
-        public static void GuardarTransaccion(string transactionData)
+        public static void GuardarTransaccion(Transaccion t)
         {
             try
             {
-                // Abre el archivo en modo append y escribe la nueva línea
                 using (StreamWriter sw = new StreamWriter(transactionsFilePath, true, Encoding.UTF8))
                 {
-                    sw.WriteLine(transactionData);
+                    string linea = ConvertirTransaccionALineaCSV(t);
+                    sw.WriteLine(linea);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine($"Error al guardar la transacción: {ex.Message}");
-                // Aquí podrías agregar un log de errores o mostrar un mensaje al usuario
             }
         }
+
+        private static string EscaparCampo(string campo)
+        {
+            if (campo == null)
+                return "\"\"";
+
+            // Escapa las comillas dobles existentes y encierra el campo entre comillas dobles
+            return $"\"{campo.Replace("\"", "\"\"")}\"";
+        }
+
+        public static string ConvertirTransaccionALineaCSV(Transaccion t)
+        {
+            var boleto = t.BoletoComprado;
+
+            List<string> campos = new List<string>
+    {
+        EscaparCampo(t.IdTransaccion),
+        EscaparCampo(boleto.Zona),
+        boleto.Asiento.ToString(),
+        EscaparCampo(boleto.NombreComprador),
+        EscaparCampo(boleto.ApellidoComprador),
+        EscaparCampo(boleto.DireccionComprador),
+        EscaparCampo(boleto.TelefonoComprador),
+        EscaparCampo(boleto.EmailComprador),
+        EscaparCampo(boleto.FechaHoraCompra.ToString("yyyy-MM-dd HH:mm:ss")),
+        EscaparCampo(boleto.CodigoQR),
+        EscaparCampo(boleto.GetType().Name),
+        EscaparCampo(t.Estado.ToString()),
+        EscaparCampo(t.FechaProcesamiento.ToString("yyyy-MM-dd HH:mm:ss"))
+    };
+
+            if (boleto is BoletoVIP vip)
+            {
+                campos.Add(EscaparCampo(vip.BeneficiosAdicionales));
+            }
+
+            return string.Join(",", campos);
+        }
+
+
         static FileManager()
         {
-            // Obtiene la ruta del directorio donde se está ejecutando el ensamblado (TuApp.exe)
+
             string baseDirectory = AppDomain.CurrentDomain.BaseDirectory;
 
-            // Navega hacia arriba para llegar a la raíz de la solución o del proyecto.
-            // Esto asume una estructura como:
-            // TuSolucion/TuProyectoGUI/bin/Debug/TuApp.exe
-            // Queremos llegar a TuSolucion/MiCarpetaDeDatos/
-            // Subimos 3 niveles para ir de "Debug" -> "bin" -> "TuProyectoGUI" -> "TuSolucion"
-            // string projectRoot = Path.GetFullPath(Path.Combine(baseDirectory, @"..\..\..\")); // Subir 3 niveles para llegar a la raíz de la solución
+            dataFolderPath = Path.Combine(baseDirectory, "Data"); 
 
-            // Opción más simple si quieres una carpeta dentro de la carpeta donde está el .exe, por ejemplo:
-            // TuApp.exe
-            // Data/
-            //   transactions.csv
-            //   stadium_state.csv
-            // En este caso, solo necesitas:
-            dataFolderPath = Path.Combine(baseDirectory, "Data"); // Esto crea una carpeta "Data" junto al .exe
-
-            // Si realmente quieres que los archivos estén en una carpeta a nivel de la solución
-            // (fuera de la carpeta bin/Debug), la ruta `projectRoot` es más compleja y depende de tu estructura exacta.
-            // Para simplificar y que funcione universalmente, vamos a crear una carpeta "Data"
-            // en la misma ubicación que el ejecutable.
-            // Si necesitas una ruta diferente, dime la estructura de carpetas exacta.
-
-
-            // Asegúrate de que la carpeta de datos exista
             if (!Directory.Exists(dataFolderPath))
             {
                 Directory.CreateDirectory(dataFolderPath);
@@ -79,36 +98,44 @@ namespace BLL.Utils // Tu namespace actual
 
             try
             {
-                using (StreamReader sr = new StreamReader(transactionsFilePath, Encoding.UTF8))
+                using (TextFieldParser parser = new TextFieldParser(transactionsFilePath, Encoding.UTF8))
                 {
-                    string line;
-                    while ((line = sr.ReadLine()) != null)
-                    {
-                        string[] partes = line.Split(',');
+                    parser.TextFieldType = FieldType.Delimited;
+                    parser.SetDelimiters(",");
 
-                        if (partes.Length >= 7)
+                    while (!parser.EndOfData)
+                    {
+                        string[] partes = parser.ReadFields();
+
+                        if (partes.Length >= 13)
                         {
-                            int id = int.Parse(partes[0]);
+                            string id = partes[0];
                             string zona = partes[1];
                             int asiento = int.Parse(partes[2]);
                             string nombre = partes[3];
-                            DateTime fecha = DateTime.Parse(partes[4]);
-                            string rutaQR = partes[5];
-                            string tipo = partes[6].Trim();
+                            string apellido = partes[4];
+                            string direccion = partes[5];
+                            string telefono = partes[6];
+                            string email = partes[7];
+                            DateTime fechaCompra = DateTime.Parse(partes[8]);
+                            string codigoQR = partes[9];
+                            string tipo = partes[10].Trim();
+                            EstadoTransaccion estado = Enum.Parse<EstadoTransaccion>(partes[11]);
+                            DateTime fechaProcesamiento = DateTime.Parse(partes[12]);
 
                             Boleto boleto;
 
                             if (tipo.Equals("BoletoVIP", StringComparison.OrdinalIgnoreCase))
                             {
-                                string beneficios = partes.Length >= 8 ? partes[7].Trim() : "Sin beneficios";
-                                boleto = new BoletoVIP(id, zona, asiento, nombre, fecha, rutaQR, beneficios);
+                                string beneficios = partes.Length >= 14 ? partes[13].Trim() : "Sin beneficios";
+                                boleto = new BoletoVIP(id, zona, asiento, nombre, apellido, direccion, telefono, email, fechaCompra, codigoQR, beneficios);
                             }
                             else
                             {
-                                boleto = new Boleto(id, zona, asiento, nombre, fecha, rutaQR);
+                                boleto = new Boleto(id, zona, asiento, nombre, apellido, direccion, telefono, email, fechaCompra, codigoQR);
                             }
 
-                            Transaccion transaccion = new Transaccion(id, boleto, EstadoTransaccion.Procesada, fecha);
+                            Transaccion transaccion = new Transaccion(id, boleto, estado, fechaProcesamiento);
                             transaccionesCargadas.Add(transaccion);
                         }
                     }
@@ -123,39 +150,6 @@ namespace BLL.Utils // Tu namespace actual
         }
 
 
-        // Método para procesar una línea del archivo y convertirla en un objeto Boleto
-        // *** TU MÉTODO ParseBoletoDesdeLinea YA ES MUY BUENO, LO MANTENEMOS ASÍ ***
-        public static Boleto ParseBoletoDesdeLinea(string line)
-        {
-            string[] parts = line.Split(',');
-            if (parts.Length >= 7) // Mínimo de campos para Boleto
-            {
-                // Manejo seguro de la conversión de tipos
-                if (!int.TryParse(parts[0], out int id) ||
-                    !int.TryParse(parts[2], out int asiento) ||
-                    !DateTime.TryParse(parts[4], out DateTime fechaHoraCompra))
-                {
-                    Console.WriteLine($"Error al parsear datos de boleto en línea: {line}");
-                    return null; // O lanza una excepción específica
-                }
-
-                string zona = parts[1];
-                string nombreComprador = parts[3];
-                string codigoQRPath = parts[5];
-                string tipoBoleto = parts[6];
-
-                if (tipoBoleto == "BoletoVIP" && parts.Length >= 8)
-                {
-                    string beneficios = parts[7];
-                    return new BoletoVIP(id, zona, asiento, nombreComprador, fechaHoraCompra, codigoQRPath, beneficios);
-                }
-                else
-                {
-                    return new Boleto(id, zona, asiento, nombreComprador, fechaHoraCompra, codigoQRPath);
-                }
-            }
-            return null; // La línea no tiene el formato esperado
-        }
 
         // --- NUEVOS MÉTODOS PARA EL ESTADO DEL ESTADIO ---
 

@@ -8,7 +8,7 @@ namespace BLL.Clases
         public string BeneficiosAdicionales { get; private set; }
 
         // Constructor de la clase BoletoVIP, con datos completos del comprador y beneficios
-        public BoletoVIP(int numeroCorrelativo, string zona, int asiento,
+        public BoletoVIP(string numeroCorrelativo, string zona, int asiento,
                          string nombreComprador, string apellidoComprador,
                          string direccionComprador, string telefonoComprador,
                          string emailComprador, DateTime fechaHoraCompra,

@@ -31,7 +31,7 @@ namespace GUI
         private void ViewTransactionsForm_Load(object sender, EventArgs e)
         {
             ConfigurarDataGridViewColumns();
-            CargarTransaccionesEnDataGridView(); // Cargar al inicio
+            CargarTransaccionesEnDataGridView();
         }
 
         private void ConfigurarDataGridViewColumns()
@@ -40,9 +40,13 @@ namespace GUI
             dgvTransacciones.AutoGenerateColumns = false;
 
             dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "IdTransaccion", HeaderText = "ID", DataPropertyName = "IdTransaccion", Width = 50 });
-            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Comprador", HeaderText = "Comprador", DataPropertyName = "NombreComprador", Width = 150 });
-            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Zona", HeaderText = "Zona", DataPropertyName = "ZonaAsignada", Width = 100 });
-            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Asiento", HeaderText = "Asiento", DataPropertyName = "NumeroAsiento", Width = 70 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "NombreComprador", HeaderText = "Nombre del Comprador", DataPropertyName = "NombreComprador", Width = 150 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ApellidoComprador", HeaderText = "Apellido del Comprador", DataPropertyName = "ApellidoComprador", Width = 150 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "DireccionComprador", HeaderText = "Dirección", DataPropertyName = "DireccionComprador", Width = 200 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "TelefonoComprador", HeaderText = "Teléfono", DataPropertyName = "TelefonoComprador", Width = 120 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "EmailComprador", HeaderText = "Correo", DataPropertyName = "EmailComprador", Width = 180 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "ZonaAsignada", HeaderText = "Zona", DataPropertyName = "ZonaAsignada", Width = 100 });
+            dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "NumeroAsiento", HeaderText = "Asiento", DataPropertyName = "NumeroAsiento", Width = 70 });
             dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "TipoBoleto", HeaderText = "Tipo", DataPropertyName = "TipoBoleto", Width = 80 });
             dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "Estado", HeaderText = "Estado", DataPropertyName = "Estado", Width = 90 });
             dgvTransacciones.Columns.Add(new DataGridViewTextBoxColumn() { Name = "FechaProcesamiento", HeaderText = "Fecha Proceso", DataPropertyName = "FechaProcesamiento", Width = 150 });
@@ -65,17 +69,14 @@ namespace GUI
 
         public void CargarTransaccionesEnDataGridView()
         {
-            // Cargar transacciones desde archivo
             List<Transaccion> transaccionesDesdeArchivo = FileManager.CargarTransacciones();
 
             _transaccionesProcesadas.Clear();
             _transaccionesProcesadas.AddRange(transaccionesDesdeArchivo);
 
-            // Asignar la fuente de datos
-            dgvTransacciones.DataSource = null; // Limpiar para evitar conflictos
+            dgvTransacciones.DataSource = null;
             dgvTransacciones.DataSource = _transaccionesProcesadas;
 
-            // Ajustar columnas automáticamente
             dgvTransacciones.AutoResizeColumns(DataGridViewAutoSizeColumnsMode.AllCells);
         }
 
@@ -84,7 +85,9 @@ namespace GUI
             if (dgvTransacciones.SelectedRows.Count > 0)
             {
                 DataGridViewRow row = dgvTransacciones.SelectedRows[0];
-                if (row.Cells["IdTransaccion"].Value is int idTransaccion)
+                string idTransaccion = row.Cells["IdTransaccion"].Value?.ToString();
+
+                if (!string.IsNullOrEmpty(idTransaccion))
                 {
                     Transaccion transaccion = _transaccionesProcesadas.Find(t => t.IdTransaccion == idTransaccion);
                     if (transaccion != null)

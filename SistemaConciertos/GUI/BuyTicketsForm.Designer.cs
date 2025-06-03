@@ -41,6 +41,14 @@
             btnComprarBoleto = new Button();
             pictureBox1 = new PictureBox();
             pnlAsientos = new Panel();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            txtApellidoComprador = new TextBox();
+            txtDireccion = new TextBox();
+            txtTelefono = new TextBox();
+            txtCorreo = new TextBox();
             grpComprador.SuspendLayout();
             grpSeleccionBoletos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -48,30 +56,38 @@
             // 
             // grpComprador
             // 
+            grpComprador.Controls.Add(txtCorreo);
+            grpComprador.Controls.Add(txtTelefono);
+            grpComprador.Controls.Add(txtDireccion);
+            grpComprador.Controls.Add(txtApellidoComprador);
+            grpComprador.Controls.Add(label4);
+            grpComprador.Controls.Add(label3);
+            grpComprador.Controls.Add(label2);
+            grpComprador.Controls.Add(label1);
             grpComprador.Controls.Add(txtNombreComprador);
             grpComprador.Controls.Add(lblNombreComprador);
-            grpComprador.Location = new Point(75, 47);
+            grpComprador.Location = new Point(115, 30);
             grpComprador.Name = "grpComprador";
-            grpComprador.Size = new Size(416, 125);
+            grpComprador.Size = new Size(636, 216);
             grpComprador.TabIndex = 0;
             grpComprador.TabStop = false;
             grpComprador.Text = "Información del Comprador";
             // 
             // txtNombreComprador
             // 
-            txtNombreComprador.Location = new Point(184, 20);
+            txtNombreComprador.Location = new Point(184, 25);
             txtNombreComprador.Name = "txtNombreComprador";
-            txtNombreComprador.Size = new Size(189, 27);
+            txtNombreComprador.Size = new Size(421, 27);
             txtNombreComprador.TabIndex = 4;
             // 
             // lblNombreComprador
             // 
             lblNombreComprador.AutoSize = true;
-            lblNombreComprador.Location = new Point(6, 23);
+            lblNombreComprador.Location = new Point(6, 25);
             lblNombreComprador.Name = "lblNombreComprador";
-            lblNombreComprador.Size = new Size(172, 20);
+            lblNombreComprador.Size = new Size(67, 20);
             lblNombreComprador.TabIndex = 0;
-            lblNombreComprador.Text = "Nombre del Comprador:";
+            lblNombreComprador.Text = "Nombre:";
             // 
             // grpSeleccionBoletos
             // 
@@ -81,7 +97,7 @@
             grpSeleccionBoletos.Controls.Add(lblEtiquetaDisponibilidad);
             grpSeleccionBoletos.Controls.Add(cmbZonas);
             grpSeleccionBoletos.Controls.Add(lblSeleccionarZona);
-            grpSeleccionBoletos.Location = new Point(81, 214);
+            grpSeleccionBoletos.Location = new Point(109, 252);
             grpSeleccionBoletos.Name = "grpSeleccionBoletos";
             grpSeleccionBoletos.Size = new Size(410, 125);
             grpSeleccionBoletos.TabIndex = 1;
@@ -144,7 +160,7 @@
             // 
             // btnComprarBoleto
             // 
-            btnComprarBoleto.Location = new Point(545, 107);
+            btnComprarBoleto.Location = new Point(214, 397);
             btnComprarBoleto.Name = "btnComprarBoleto";
             btnComprarBoleto.Size = new Size(94, 29);
             btnComprarBoleto.TabIndex = 2;
@@ -166,6 +182,70 @@
             pnlAsientos.Name = "pnlAsientos";
             pnlAsientos.Size = new Size(1584, 502);
             pnlAsientos.TabIndex = 4;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 62);
+            label1.Name = "label1";
+            label1.Size = new Size(69, 20);
+            label1.TabIndex = 5;
+            label1.Text = "Apellido:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(6, 99);
+            label2.Name = "label2";
+            label2.Size = new Size(75, 20);
+            label2.TabIndex = 6;
+            label2.Text = "Dirección:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(6, 135);
+            label3.Name = "label3";
+            label3.Size = new Size(70, 20);
+            label3.TabIndex = 7;
+            label3.Text = "Teléfono:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(6, 171);
+            label4.Name = "label4";
+            label4.Size = new Size(135, 20);
+            label4.TabIndex = 8;
+            label4.Text = "Correo Electrónico:";
+            // 
+            // txtApellidoComprador
+            // 
+            txtApellidoComprador.Location = new Point(184, 62);
+            txtApellidoComprador.Name = "txtApellidoComprador";
+            txtApellidoComprador.Size = new Size(421, 27);
+            txtApellidoComprador.TabIndex = 9;
+            // 
+            // txtDireccion
+            // 
+            txtDireccion.Location = new Point(184, 99);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.Size = new Size(421, 27);
+            txtDireccion.TabIndex = 10;
+            // 
+            // txtTelefono
+            // 
+            txtTelefono.Location = new Point(184, 135);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.Size = new Size(421, 27);
+            txtTelefono.TabIndex = 11;
+            // 
+            // txtCorreo
+            // 
+            txtCorreo.Location = new Point(184, 171);
+            txtCorreo.Name = "txtCorreo";
+            txtCorreo.Size = new Size(421, 27);
+            txtCorreo.TabIndex = 12;
             // 
             // BuyTicketsForm
             // 
@@ -204,5 +284,13 @@
         private Label lblEtiquetaDisponibilidad;
         private Label lblAsientoAsignado;
         private Panel pnlAsientos;
+        private Label label2;
+        private Label label1;
+        private Label label3;
+        private TextBox txtDireccion;
+        private TextBox txtApellidoComprador;
+        private Label label4;
+        private TextBox txtCorreo;
+        private TextBox txtTelefono;
     }
 }

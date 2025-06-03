@@ -59,7 +59,7 @@ namespace GUI
                     // Esto asegura que los nuevos IDs de boletos/transacciones no se dupliquen con los ya guardados.
                     // Si tu Transaccion es la que lleva el ID principal:
                     // Necesitarás un método estático en Transaccion para establecer el próximo ID.
-                    Transaccion.SetProximoIdTransaccion(transaccionesCargadas.Max(t => t.IdTransaccion));
+                   
                     // Si Boleto.NumeroCorrelativo es el que garantiza unicidad a nivel de transacción:
                     // Boleto.SetProximoNumeroCorrelativo(transaccionesCargadas.Max(t => t.NumeroCorrelativo));
                 }

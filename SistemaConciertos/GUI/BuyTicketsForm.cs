@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Clases;
 using BLL.EstructuraDatos;
+using BLL.Utils;
 
 namespace GUI
 {
@@ -79,6 +80,11 @@ namespace GUI
         private void btnComprarBoleto_Click(object sender, EventArgs e)
         {
             string nombreComprador = txtNombreComprador.Text.Trim();
+            string apellidoComprador = txtApellidoComprador.Text.Trim();
+            string direccionComprador = txtDireccion.Text.Trim();
+            string telefono = txtTelefono.Text.Trim();
+            string correo = txtCorreo.Text.Trim();
+
             if (string.IsNullOrEmpty(nombreComprador))
             {
                 MessageBox.Show("Por favor, ingrese el nombre del comprador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -93,18 +99,16 @@ namespace GUI
 
             string zonaSeleccionada = cmbZonas.SelectedItem.ToString();
             Zona zonaObj = _estadio.ObtenerZonaPorNombre(zonaSeleccionada);
-            bool esVIP = false;
             if (zonaObj == null)
             {
                 MessageBox.Show("Error: La zona seleccionada no se encontró en el estadio.", "Error Interno", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            esVIP = zonaObj.EsVIP; // Determinamos si es VIP basado en la zona
 
+            bool esVIP = zonaObj.EsVIP;
 
             // Paso 1: Intentar asignar un asiento
             int asientoAsignado = _estadio.ObtenerAsientoDisponible(zonaSeleccionada);
-
             if (asientoAsignado == -1)
             {
                 MessageBox.Show($"Lo sentimos, no hay asientos disponibles en la zona {zonaSeleccionada}.", "Sin Boletos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -113,24 +117,44 @@ namespace GUI
 
             lblAsientoAsignado.Text = asientoAsignado.ToString();
 
-            // Paso 2: Crear la transacción y encolarla
-            Transaccion nuevaTransaccion = Transaccion.CrearNuevaTransaccion(nombreComprador, zonaSeleccionada, asientoAsignado, esVIP);
+            // Paso 2: Generar correlativo con prefijo
+            string prefijo = esVIP ? "VIP" : "GEN";
+            string correlativo = GeneradorCorrelativo.ObtenerSiguiente(prefijo);
 
-            if (esVIP) // Se encola en la cola VIP si la ZONA es VIP
+            // Paso 3: Crear la transacción
+            Transaccion nuevaTransaccion = Transaccion.CrearNuevaTransaccion(
+                correlativo,
+                zonaSeleccionada,
+                asientoAsignado,
+                nombreComprador,
+                apellidoComprador,
+                direccionComprador,
+                telefono,
+                correo,
+                DateTime.Now,
+                "",
+                esVIP
+            );
+
+            // Paso 4: Encolar transacción
+            if (esVIP)
             {
-                // *** CAMBIO AQUÍ: Ahora se usa Encolar() en lugar de EncolarConPrioridad() ***
                 _colaTransaccionesVIP.Encolar(nuevaTransaccion);
                 MessageBox.Show($"Transacción VIP para {nombreComprador} encolada para procesamiento en zona '{zonaSeleccionada}'. Asiento: {asientoAsignado}", "Compra Encolada VIP", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else // Se encola en la cola Normal si la ZONA NO es VIP
+            else
             {
                 _colaTransaccionesNormal.Encolar(nuevaTransaccion);
                 MessageBox.Show($"Transacción para {nombreComprador} encolada para procesamiento en zona '{zonaSeleccionada}'. Asiento: {asientoAsignado}", "Compra Encolada", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            // Actualizar la disponibilidad mostrada
-            cmbZonas_SelectedIndexChanged(null, null); // Forzar actualización de disponibilidad
-            txtNombreComprador.Clear(); // Limpiar campo de nombre
+            // Paso 5: Actualizar interfaz
+            cmbZonas_SelectedIndexChanged(null, null); // Actualizar disponibilidad
+            txtNombreComprador.Clear();
+            txtApellidoComprador.Clear();
+            txtDireccion.Clear();
+            txtTelefono.Clear();
+            txtCorreo.Clear();
         }
 
         private void DibujarMapaDeAsientos(string zonaSeleccionada)
