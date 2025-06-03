@@ -51,7 +51,8 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { menuBoletos });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1764, 28);
+            menuStrip1.Padding = new Padding(5, 2, 0, 2);
+            menuStrip1.Size = new Size(1091, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -59,103 +60,112 @@
             // 
             menuBoletos.DropDownItems.AddRange(new ToolStripItem[] { menuItemComprarBoleto, menuItemVerTransacciones, menuItemSimulacion, toolStripSeparator1, menuItemSalir });
             menuBoletos.Name = "menuBoletos";
-            menuBoletos.Size = new Size(73, 24);
+            menuBoletos.Size = new Size(58, 20);
             menuBoletos.Text = "&Boletos";
             // 
             // menuItemComprarBoleto
             // 
             menuItemComprarBoleto.Name = "menuItemComprarBoleto";
-            menuItemComprarBoleto.Size = new Size(208, 26);
+            menuItemComprarBoleto.Size = new Size(167, 22);
             menuItemComprarBoleto.Text = "&Comprar Boleto";
             menuItemComprarBoleto.Click += menuItemComprarBoleto_Click;
             // 
             // menuItemVerTransacciones
             // 
             menuItemVerTransacciones.Name = "menuItemVerTransacciones";
-            menuItemVerTransacciones.Size = new Size(208, 26);
+            menuItemVerTransacciones.Size = new Size(167, 22);
             menuItemVerTransacciones.Text = "&Ver Transacciones";
             menuItemVerTransacciones.Click += menuItemVerTransacciones_Click;
             // 
             // menuItemSimulacion
             // 
             menuItemSimulacion.Name = "menuItemSimulacion";
-            menuItemSimulacion.Size = new Size(208, 26);
+            menuItemSimulacion.Size = new Size(167, 22);
             menuItemSimulacion.Text = "&Simulación";
             menuItemSimulacion.Click += menuItemSimulacion_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(205, 6);
+            toolStripSeparator1.Size = new Size(164, 6);
             // 
             // menuItemSalir
             // 
             menuItemSalir.Name = "menuItemSalir";
-            menuItemSalir.Size = new Size(208, 26);
+            menuItemSalir.Size = new Size(167, 22);
             menuItemSalir.Text = "&Salir";
             menuItemSalir.Click += menuItemSalir_Click;
             // 
             // label1
             // 
+            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Arial Rounded MT Bold", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(499, 287);
+            label1.Location = new Point(206, 214);
             label1.Name = "label1";
-            label1.Size = new Size(814, 34);
+            label1.Size = new Size(642, 28);
             label1.TabIndex = 0;
             label1.Text = "¡Bienvenido a TicketExpress! - Tu entrada a la música\"";
             label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label2
             // 
+            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Arial Rounded MT Bold", 13.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label2.Location = new Point(420, 358);
+            label2.Location = new Point(137, 267);
             label2.Name = "label2";
-            label2.Size = new Size(993, 27);
+            label2.Size = new Size(807, 22);
             label2.TabIndex = 1;
             label2.Text = "Compra tus entradas para tus conciertos y eventos favoritos de manera rápida y segura";
             // 
             // label3
             // 
+            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Arial Rounded MT Bold", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label3.Location = new Point(568, 428);
+            label3.Location = new Point(266, 320);
             label3.Name = "label3";
-            label3.Size = new Size(700, 23);
+            label3.Size = new Size(574, 18);
             label3.TabIndex = 2;
             label3.Text = "Explora nuestra selección de espectáculos y reserva tus boletos online";
             // 
             // picLogo
             // 
             picLogo.Image = Properties.Resources.LogoTicket1;
-            picLogo.Location = new Point(641, 101);
+            picLogo.Location = new Point(292, 74);
+            picLogo.Margin = new Padding(3, 2, 3, 2);
             picLogo.Name = "picLogo";
-            picLogo.Size = new Size(587, 137);
+            picLogo.Size = new Size(514, 103);
             picLogo.SizeMode = PictureBoxSizeMode.Zoom;
             picLogo.TabIndex = 3;
             picLogo.TabStop = false;
             // 
             // pnlContenedor
             // 
+            pnlContenedor.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            pnlContenedor.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             pnlContenedor.Controls.Add(picLogo);
             pnlContenedor.Controls.Add(label3);
             pnlContenedor.Controls.Add(label2);
             pnlContenedor.Controls.Add(label1);
-            pnlContenedor.Location = new Point(0, 31);
+            pnlContenedor.Location = new Point(0, 23);
+            pnlContenedor.Margin = new Padding(3, 2, 3, 2);
             pnlContenedor.Name = "pnlContenedor";
-            pnlContenedor.Size = new Size(1764, 924);
+            pnlContenedor.Size = new Size(1091, 465);
             pnlContenedor.TabIndex = 0;
             // 
             // MainForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleDimensions = new SizeF(96F, 96F);
+            AutoScaleMode = AutoScaleMode.Dpi;
+            AutoSize = true;
             BackColor = Color.FromArgb(232, 240, 254);
-            ClientSize = new Size(1764, 960);
+            ClientSize = new Size(1091, 492);
             Controls.Add(menuStrip1);
             Controls.Add(pnlContenedor);
             MainMenuStrip = menuStrip1;
+            Margin = new Padding(3, 2, 3, 2);
             Name = "MainForm";
             Text = "TicketExpress";
             menuStrip1.ResumeLayout(false);
