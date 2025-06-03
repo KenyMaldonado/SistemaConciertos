@@ -28,7 +28,8 @@ namespace GUI
 
             // Configurar el formulario al iniciar
             this.Text = "Sistema de Venta de Boletos de Concierto";
-            this.WindowState = FormWindowState.Maximized; // Maximizar al inicio
+            this.WindowState = FormWindowState.Normal; // Muestra la ventana normal
+            this.StartPosition = FormStartPosition.CenterScreen; // Centra la ventana
 
             // --- PASO CLAVE 1: Cargar datos al inicio del programa ---
             CargarDatosAlInicio();

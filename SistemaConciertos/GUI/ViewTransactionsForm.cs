@@ -26,6 +26,12 @@ namespace GUI
             _colaTransaccionesVIP = colaVIP;
             _transaccionesProcesadas = transaccionesProcesadas;
             this.Load += ViewTransactionsForm_Load;
+            this.AutoSize = false;
+            this.AutoSizeMode = AutoSizeMode.GrowOnly;
+            this.Size = new Size(1142, 669); // o el tamaño exacto de diseño
+            this.StartPosition = FormStartPosition.CenterScreen;
+
+
         }
 
         private void ViewTransactionsForm_Load(object sender, EventArgs e)
