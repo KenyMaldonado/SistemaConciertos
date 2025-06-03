@@ -5,11 +5,12 @@ using System.Drawing.Imaging; // Necesario para ImageFormat.Png
 using ZXing; // El namespace principal de ZXing.Net
 using ZXing.QrCode;
 
-namespace BLL.Utils // Asegúrate de que este namespace coincida con el de tu proyecto BLL
+namespace BLL.Utils
 {
     public static class QRGenerator
     {
-        private static string qrFolderPath = "QRCodes"; // Carpeta donde se guardarán los QRs
+        // Cambia la ruta a la carpeta fija en C:
+        private static string qrFolderPath = @"C:\QRCodes";
 
         public static string GenerarQR(string data, string fileName)
         {
@@ -22,13 +23,13 @@ namespace BLL.Utils // Asegúrate de que este namespace coincida con el de tu pr
             // Configura el generador de códigos QR
             var writer = new BarcodeWriterPixelData
             {
-                Format = BarcodeFormat.QR_CODE, // Especifica el formato QR
+                Format = BarcodeFormat.QR_CODE,
                 Options = new QrCodeEncodingOptions
                 {
-                    Height = 256, // Altura de la imagen QR en píxeles
-                    Width = 256,  // Ancho de la imagen QR en píxeles
-                    Margin = 1,   // Margen alrededor del código QR (en "módulos" del QR)
-                    ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.H // Nivel de corrección de errores (L, M, Q, H)
+                    Height = 256,
+                    Width = 256,
+                    Margin = 1,
+                    ErrorCorrection = ZXing.QrCode.Internal.ErrorCorrectionLevel.H
                 }
             };
 
@@ -36,13 +37,12 @@ namespace BLL.Utils // Asegúrate de que este namespace coincida con el de tu pr
             var pixelData = writer.Write(data);
 
             // Crea un Bitmap a partir de los píxeles generados
-            using (var bitmap = new Bitmap(pixelData.Width, pixelData.Height, PixelFormat.Format32bppRgb))
+            using (var bitmap = new Bitmap(pixelData.Width, pixelData.Height, System.Drawing.Imaging.PixelFormat.Format32bppRgb))
             {
                 var bitmapData = bitmap.LockBits(new Rectangle(0, 0, pixelData.Width, pixelData.Height),
-                    ImageLockMode.WriteOnly, PixelFormat.Format32bppRgb);
+                    ImageLockMode.WriteOnly, System.Drawing.Imaging.PixelFormat.Format32bppRgb);
                 try
                 {
-                    // Copia los píxeles generados al Bitmap
                     System.Runtime.InteropServices.Marshal.Copy(pixelData.Pixels, 0, bitmapData.Scan0, pixelData.Pixels.Length);
                 }
                 finally

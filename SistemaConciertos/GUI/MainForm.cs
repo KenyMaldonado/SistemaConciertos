@@ -136,6 +136,7 @@ namespace GUI
 
         private void menuItemVerTransacciones_Click(object sender, EventArgs e)
         {
+            this.WindowState = FormWindowState.Maximized;
             // Pasa las instancias del Estadio y las colas al formulario de visualización
             ViewTransactionsForm viewForm = new ViewTransactionsForm(Estadio, ColaTransacciones, ColaTransaccionesVIP, TransaccionesProcesadas);
             CargarFormularioEnPanel(viewForm);

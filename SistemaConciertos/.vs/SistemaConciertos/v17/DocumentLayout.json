@@ -1,34 +1,66 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\",
+  "WorkspaceRootPath": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\gui\\concurrencysimform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\concurrencysimform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\utils\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\utils\\emailsender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\clases\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\utils\\generadorcorrelativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\utils\\generadorcorrelativo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\utils\\qrgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\utils\\qrgenerator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\boleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\clases\\boleto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\utils\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\utils\\filemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\estadio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\clases\\estadio.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\zona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\clases\\zona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\kenet\\downloads\\github\\sistemaconciertos\\sistemaconciertos\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,20 +70,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 15,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "MainForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
               "RelativeDocumentMoniker": "GUI\\MainForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "GUI\\MainForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T00:55:00.938Z",
               "IsPinned": true,
               "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "BuyTicketsForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
+              "RelativeDocumentMoniker": "GUI\\BuyTicketsForm.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
+              "RelativeToolTip": "GUI\\BuyTicketsForm.cs",
+              "ViewState": "AgIAAKkAAAAAAAAAAAASwLYAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T13:01:52.816Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -71,11 +117,11 @@
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
             },
             {
               "$type": "Bookmark",
-              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+              "Name": "ST:0:0:{b1e99781-ab81-11d0-b683-00aa00a3ee26}"
             },
             {
               "$type": "Bookmark",
@@ -91,37 +137,128 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
+              "Title": "ConcurrencySimForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ConcurrencySimForm.cs",
+              "RelativeDocumentMoniker": "GUI\\ConcurrencySimForm.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ConcurrencySimForm.cs",
+              "RelativeToolTip": "GUI\\ConcurrencySimForm.cs",
+              "ViewState": "AgIAAHQAAAAAAAAAAAASwHoAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T17:15:17.017Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "QRGenerator.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\QRGenerator.cs",
+              "RelativeDocumentMoniker": "BLL\\Utils\\QRGenerator.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\QRGenerator.cs",
+              "RelativeToolTip": "BLL\\Utils\\QRGenerator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T16:55:34.681Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "GeneradorCorrelativo.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\GeneradorCorrelativo.cs",
+              "RelativeDocumentMoniker": "BLL\\Utils\\GeneradorCorrelativo.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\GeneradorCorrelativo.cs",
+              "RelativeToolTip": "BLL\\Utils\\GeneradorCorrelativo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACEAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T16:55:33.008Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "EmailSender.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\EmailSender.cs",
+              "RelativeDocumentMoniker": "BLL\\Utils\\EmailSender.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\EmailSender.cs",
+              "RelativeToolTip": "BLL\\Utils\\EmailSender.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABUAAAAsAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T15:54:47.978Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Boleto.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Boleto.cs",
+              "RelativeDocumentMoniker": "BLL\\Clases\\Boleto.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Boleto.cs",
+              "RelativeToolTip": "BLL\\Clases\\Boleto.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAA2wEUAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T15:44:33.972Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Zona.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Zona.cs",
+              "RelativeDocumentMoniker": "BLL\\Clases\\Zona.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Zona.cs",
+              "RelativeToolTip": "BLL\\Clases\\Zona.cs",
+              "ViewState": "AgIAAG4AAAAAAAAAAAAUwI0AAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T15:29:01.59Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Estadio.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Estadio.cs",
+              "RelativeDocumentMoniker": "BLL\\Clases\\Estadio.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Estadio.cs",
+              "RelativeToolTip": "BLL\\Clases\\Estadio.cs",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAiwHwAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T15:26:28.627Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "FileManager.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\FileManager.cs",
+              "RelativeDocumentMoniker": "BLL\\Utils\\FileManager.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Utils\\FileManager.cs",
+              "RelativeToolTip": "BLL\\Utils\\FileManager.cs",
+              "ViewState": "AgIAACgBAAAAAAAAAAAiwD0BAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-03T15:00:25.591Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
               "Title": "ViewTransactionsForm.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
               "RelativeDocumentMoniker": "GUI\\ViewTransactionsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
               "RelativeToolTip": "GUI\\ViewTransactionsForm.cs",
-              "ViewState": "AgIAAGAAAAAAAAAAAAA6wHYAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAAFgAAAAAAAAAAAAAwF4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T13:08:56.084Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "BuyTicketsForm.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
-              "RelativeDocumentMoniker": "GUI\\BuyTicketsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
-              "RelativeToolTip": "GUI\\BuyTicketsForm.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T13:01:52.816Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 8,
               "Title": "BuyTicketsForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
               "RelativeDocumentMoniker": "GUI\\BuyTicketsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "GUI\\BuyTicketsForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T13:00:23.546Z",
@@ -129,36 +266,37 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 14,
               "Title": "MainForm.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
               "RelativeDocumentMoniker": "GUI\\MainForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
               "RelativeToolTip": "GUI\\MainForm.cs",
-              "ViewState": "AgIAAI0AAAAAAAAAAAA5wB8AAABVAAAAAAAAAA==",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAQwIoAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-03T12:55:14.449Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 4,
               "Title": "Transaccion.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Transaccion.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Transaccion.cs",
               "RelativeDocumentMoniker": "BLL\\Clases\\Transaccion.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Transaccion.cs",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Transaccion.cs",
               "RelativeToolTip": "BLL\\Clases\\Transaccion.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJUAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAFwAAAAAAAAAAAAmwGAAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T21:12:51.114Z"
+              "WhenOpened": "2025-06-02T21:12:51.114Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "ViewTransactionsForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
+              "DocumentMoniker": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
               "RelativeDocumentMoniker": "GUI\\ViewTransactionsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
               "RelativeToolTip": "GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-06-02T21:04:21.925Z",

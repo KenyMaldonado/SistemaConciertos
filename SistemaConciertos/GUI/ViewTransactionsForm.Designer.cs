@@ -39,6 +39,7 @@
             label1 = new Label();
             label2 = new Label();
             label3 = new Label();
+            btnCancelar = new Button();
             ((System.ComponentModel.ISupportInitialize)dgvTransacciones).BeginInit();
             pnlDetallesBoleto.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pbQRCode).BeginInit();
@@ -48,7 +49,6 @@
             // 
             dgvTransacciones.AllowUserToAddRows = false;
             dgvTransacciones.AllowUserToDeleteRows = false;
-            dgvTransacciones.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             dgvTransacciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransacciones.BackgroundColor = Color.FromArgb(232, 240, 254);
             dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
@@ -71,8 +71,7 @@
             dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
             dgvTransacciones.DefaultCellStyle = dataGridViewCellStyle5;
             dgvTransacciones.GridColor = SystemColors.Window;
-            dgvTransacciones.Location = new Point(1, 71);
-            dgvTransacciones.Margin = new Padding(3, 2, 3, 2);
+            dgvTransacciones.Location = new Point(46, 89);
             dgvTransacciones.Name = "dgvTransacciones";
             dgvTransacciones.ReadOnly = true;
             dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -84,17 +83,16 @@
             dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
             dgvTransacciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvTransacciones.RowHeadersWidth = 51;
-            dgvTransacciones.Size = new Size(1139, 206);
+            dgvTransacciones.Size = new Size(1769, 275);
             dgvTransacciones.TabIndex = 0;
             dgvTransacciones.SelectionChanged += dgvTransacciones_SelectionChanged;
             // 
             // btnActualizar
             // 
             btnActualizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.Location = new Point(762, 356);
-            btnActualizar.Margin = new Padding(3, 2, 3, 2);
+            btnActualizar.Location = new Point(871, 475);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(195, 44);
+            btnActualizar.Size = new Size(223, 59);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar Lista";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -103,33 +101,31 @@
             // pnlDetallesBoleto
             // 
             pnlDetallesBoleto.BorderStyle = BorderStyle.FixedSingle;
+            pnlDetallesBoleto.Controls.Add(btnCancelar);
             pnlDetallesBoleto.Controls.Add(txtDetalleBoleto);
             pnlDetallesBoleto.Controls.Add(pbQRCode);
-            pnlDetallesBoleto.Location = new Point(181, 333);
-            pnlDetallesBoleto.Margin = new Padding(3, 2, 3, 2);
+            pnlDetallesBoleto.Location = new Point(207, 444);
             pnlDetallesBoleto.Name = "pnlDetallesBoleto";
-            pnlDetallesBoleto.Size = new Size(306, 298);
+            pnlDetallesBoleto.Size = new Size(408, 470);
             pnlDetallesBoleto.TabIndex = 2;
             // 
             // txtDetalleBoleto
             // 
-            txtDetalleBoleto.Location = new Point(28, 172);
-            txtDetalleBoleto.Margin = new Padding(3, 2, 3, 2);
+            txtDetalleBoleto.Location = new Point(23, 274);
             txtDetalleBoleto.Multiline = true;
             txtDetalleBoleto.Name = "txtDetalleBoleto";
             txtDetalleBoleto.ReadOnly = true;
             txtDetalleBoleto.ScrollBars = ScrollBars.Vertical;
-            txtDetalleBoleto.Size = new Size(255, 72);
+            txtDetalleBoleto.Size = new Size(358, 148);
             txtDetalleBoleto.TabIndex = 1;
             // 
             // pbQRCode
             // 
             pbQRCode.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbQRCode.BorderStyle = BorderStyle.FixedSingle;
-            pbQRCode.Location = new Point(69, 10);
-            pbQRCode.Margin = new Padding(3, 2, 3, 2);
+            pbQRCode.Location = new Point(79, 13);
             pbQRCode.Name = "pbQRCode";
-            pbQRCode.Size = new Size(175, 150);
+            pbQRCode.Size = new Size(259, 237);
             pbQRCode.SizeMode = PictureBoxSizeMode.Zoom;
             pbQRCode.TabIndex = 0;
             pbQRCode.TabStop = false;
@@ -138,9 +134,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(292, 291);
+            label1.Location = new Point(334, 388);
             label1.Name = "label1";
-            label1.Size = new Size(108, 25);
+            label1.Size = new Size(137, 32);
             label1.TabIndex = 3;
             label1.Text = "Código QR";
             // 
@@ -148,9 +144,9 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(657, 310);
+            label2.Location = new Point(751, 413);
             label2.Name = "label2";
-            label2.Size = new Size(406, 20);
+            label2.Size = new Size(515, 25);
             label2.TabIndex = 4;
             label2.Text = "En caso no se actualiza la lista, presione el siguiente botón";
             // 
@@ -158,18 +154,28 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(497, 21);
+            label3.Location = new Point(924, 31);
             label3.Name = "label3";
-            label3.Size = new Size(147, 30);
+            label3.Size = new Size(194, 37);
             label3.TabIndex = 5;
             label3.Text = "Transacciones";
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Location = new Point(126, 428);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(162, 29);
+            btnCancelar.TabIndex = 2;
+            btnCancelar.Text = "Cancelar Ticket";
+            btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
+            // 
             // ViewTransactionsForm
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(232, 240, 254);
-            ClientSize = new Size(1139, 665);
+            ClientSize = new Size(1792, 926);
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
@@ -177,7 +183,6 @@
             Controls.Add(btnActualizar);
             Controls.Add(dgvTransacciones);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 2, 3, 2);
             Name = "ViewTransactionsForm";
             Text = "Ver Transacciones y Boletos";
             ((System.ComponentModel.ISupportInitialize)dgvTransacciones).EndInit();
@@ -198,5 +203,6 @@
         private Label label1;
         private Label label2;
         private Label label3;
+        private Button btnCancelar;
     }
 }

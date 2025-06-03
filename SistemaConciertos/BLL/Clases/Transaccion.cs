@@ -94,7 +94,7 @@ namespace BLL.Clases
         }
 
         // Procesa la transacción: genera QR, guarda info, cambia estado
-        public void ProcesarTransaccion()
+        public async Task ProcesarTransaccion()
         {
             if (Estado == EstadoTransaccion.Pendiente)
             {
@@ -138,12 +138,17 @@ namespace BLL.Clases
         // Permite cancelar una transacción ya procesada
         public void CancelarTransaccion()
         {
-            if (Estado == EstadoTransaccion.Procesada)
+            if (Estado == EstadoTransaccion.Procesada || Estado == EstadoTransaccion.Pendiente)
             {
                 Estado = EstadoTransaccion.Cancelada;
-                // Aquí podrías liberar el asiento, eliminar el QR, etc.
+                FechaProcesamiento = DateTime.Now; // Actualiza la fecha si quieres
+
+                // Actualizar la transacción en el archivo
+                FileManager.ActualizarEstadoTransaccion(this);
             }
         }
+
+
 
         // Reinicia el número correlativo (útil para pruebas)
         public static void ResetNumeroCorrelativo()

@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Clases; // Para Transaccion, Boleto, EstadoTransaccion
 using BLL.EstructuraDatos; // Para ColaDinamica
-using System.Threading; // Para el Timer y el manejo de hilos (opcionalmente)
+using System.Threading;
+using BLL.Utils; // Para el Timer y el manejo de hilos (opcionalmente)
 
 namespace GUI
 {
@@ -45,17 +46,15 @@ namespace GUI
         // --- Métodos de Procesamiento de Transacciones ---
 
         // Método para procesar una sola transacción (manual)
-        private void ProcesarSiguienteTransaccion()
+        private async Task ProcesarSiguienteTransaccion()
         {
             Transaccion transaccionAProcesar = null;
-            string tipoCola = "Normal"; // Para el mensaje
+            string tipoCola = "Normal";
 
-            // Priorizar la cola VIP si tiene elementos
             if (_colaTransaccionesVIP.Desencolar(out transaccionAProcesar))
             {
                 tipoCola = "VIP";
             }
-            // Si la cola VIP está vacía, intentar con la cola Normal
             else if (_colaTransaccionesNormal.Desencolar(out transaccionAProcesar))
             {
                 tipoCola = "Normal";
@@ -65,12 +64,11 @@ namespace GUI
             {
                 try
                 {
-                    // Llamar al método de procesamiento de la transacción
-                    transaccionAProcesar.ProcesarTransaccion(); // Esto genera el QR y guarda en transactions.csv
-
-                    // Añadir la transacción procesada a la lista compartida de MainForm
-                    // (Esta lista es la misma referencia que en MainForm, por lo que se actualiza allí también)
+                    await transaccionAProcesar.ProcesarTransaccion();
                     _transaccionesProcesadas.Add(transaccionAProcesar);
+
+                    // ⬇️ Enviar correo después de procesar
+                    await EmailSender.SendTicketConfirmationWithQrEmailAsync(new List<Transaccion> { transaccionAProcesar });
 
                     MessageBox.Show($"Transacción {transaccionAProcesar.IdTransaccion} ({tipoCola}) de {transaccionAProcesar.BoletoComprado.NombreComprador} procesada exitosamente.", "Transacción Procesada", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -84,22 +82,23 @@ namespace GUI
                 MessageBox.Show("No hay transacciones pendientes en las colas.", "Sin Transacciones", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
-            ActualizarContadoresColas(); // Actualizar la UI después de cada procesamiento
+            ActualizarContadoresColas();
         }
 
         // Método para procesar todas las transacciones pendientes
-        private void ProcesarTodasLasTransacciones()
+        private async Task ProcesarTodasLasTransacciones()
         {
             int transaccionesProcesadasCount = 0;
+            List<Transaccion> transaccionesAEnviar = new();
             Transaccion transaccionAProcesar;
 
-            // Procesar todas las VIP primero
             while (_colaTransaccionesVIP.Desencolar(out transaccionAProcesar))
             {
                 try
                 {
-                    transaccionAProcesar.ProcesarTransaccion();
+                    await transaccionAProcesar.ProcesarTransaccion();
                     _transaccionesProcesadas.Add(transaccionAProcesar);
+                    transaccionesAEnviar.Add(transaccionAProcesar);
                     transaccionesProcesadasCount++;
                 }
                 catch (Exception ex)
@@ -108,13 +107,13 @@ namespace GUI
                 }
             }
 
-            // Luego procesar todas las normales
             while (_colaTransaccionesNormal.Desencolar(out transaccionAProcesar))
             {
                 try
                 {
-                    transaccionAProcesar.ProcesarTransaccion();
+                    await transaccionAProcesar.ProcesarTransaccion();
                     _transaccionesProcesadas.Add(transaccionAProcesar);
+                    transaccionesAEnviar.Add(transaccionAProcesar);
                     transaccionesProcesadasCount++;
                 }
                 catch (Exception ex)
@@ -123,8 +122,14 @@ namespace GUI
                 }
             }
 
+            // ⬇️ Enviar el correo con todos los boletos procesados
+            if (transaccionesAEnviar.Count > 0)
+            {
+                await EmailSender.SendTicketConfirmationWithQrEmailAsync(transaccionesAEnviar);
+            }
+
             MessageBox.Show($"Se procesaron {transaccionesProcesadasCount} transacciones.", "Procesamiento Completado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            ActualizarContadoresColas(); // Actualizar la UI al finalizar
+            ActualizarContadoresColas();
         }
 
 

@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using BLL.Clases;
@@ -39,17 +40,14 @@ namespace GUI
             }
             if (cmbZonas.Items.Count > 0)
             {
-                cmbZonas.SelectedIndex = 0; // Selecciona la primera zona por defecto
+                cmbZonas.SelectedIndex = 0;
             }
         }
 
         private void ActualizarUIInicial()
         {
             lblAsientoAsignado.Text = "N/A";
-            // Deshabilitar botón de compra hasta que se seleccione una zona y haya disponibilidad
             btnComprarBoleto.Enabled = false;
-            // *** ELIMINAR O OCULTAR chkEsVIP del diseñador ***
-            // chkEsVIP.Visible = false; // Puedes hacer esto si no lo borras del diseñador
         }
 
         private void cmbZonas_SelectedIndexChanged(object sender, EventArgs e)
@@ -58,39 +56,60 @@ namespace GUI
             {
                 string zonaSeleccionada = cmbZonas.SelectedItem.ToString();
                 DibujarMapaDeAsientos(zonaSeleccionada);
-                Zona zonaObj = _estadio.ObtenerZonaPorNombre(zonaSeleccionada); // Obtener el objeto Zona
+                Zona zonaObj = _estadio.ObtenerZonaPorNombre(zonaSeleccionada);
 
                 int disponibilidad = _estadio.VerificarDisponibilidadZona(zonaSeleccionada);
                 lblDisponibilidad.Text = $"{disponibilidad} boletos";
 
-                // Habilitar el botón de compra si hay disponibilidad
                 btnComprarBoleto.Enabled = disponibilidad > 0;
-
-                // Puedes añadir aquí un label para mostrar si la zona es VIP o Normal
-                // Ejemplo: if (zonaObj != null) lblTipoZona.Text = zonaObj.EsVIP ? "Tipo: VIP" : "Tipo: Normal";
             }
             else
             {
                 lblDisponibilidad.Text = "0 boletos";
                 btnComprarBoleto.Enabled = false;
-                // Ejemplo: lblTipoZona.Text = "Tipo: N/A";
             }
         }
 
-        private void btnComprarBoleto_Click(object sender, EventArgs e)
+        private async void btnComprarBoleto_Click(object sender, EventArgs e)
         {
             string nombreComprador = txtNombreComprador.Text.Trim();
             string apellidoComprador = txtApellidoComprador.Text.Trim();
             string direccionComprador = txtDireccion.Text.Trim();
             string telefono = txtTelefono.Text.Trim();
             string correo = txtCorreo.Text.Trim();
+            int cantidadBoletos = (int)numCantidadBoletos.Value;
 
+            // Validaciones básicas
             if (string.IsNullOrEmpty(nombreComprador))
             {
                 MessageBox.Show("Por favor, ingrese el nombre del comprador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-
+            if (string.IsNullOrEmpty(apellidoComprador))
+            {
+                MessageBox.Show("Por favor, ingrese el apellido del comprador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (string.IsNullOrEmpty(direccionComprador))
+            {
+                MessageBox.Show("Por favor, ingrese la dirección del comprador.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!EsTelefonoValido(telefono))
+            {
+                MessageBox.Show("Por favor, ingrese un número de teléfono válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (!EsCorreoValido(correo))
+            {
+                MessageBox.Show("Por favor, ingrese un correo electrónico válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            if (cantidadBoletos < 1)
+            {
+                MessageBox.Show("Debe seleccionar al menos un boleto para comprar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             if (cmbZonas.SelectedItem == null)
             {
                 MessageBox.Show("Por favor, seleccione una zona.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -105,58 +124,115 @@ namespace GUI
                 return;
             }
 
-            bool esVIP = zonaObj.EsVIP;
-
-            // Paso 1: Intentar asignar un asiento
-            int asientoAsignado = _estadio.ObtenerAsientoDisponible(zonaSeleccionada);
-            if (asientoAsignado == -1)
+            int disponibilidad = _estadio.VerificarDisponibilidadZona(zonaSeleccionada);
+            if (cantidadBoletos > disponibilidad)
             {
-                MessageBox.Show($"Lo sentimos, no hay asientos disponibles en la zona {zonaSeleccionada}.", "Sin Boletos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show($"Solo hay {disponibilidad} boletos disponibles en esta zona. Por favor, reduzca la cantidad.", "Boletos insuficientes", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
-            lblAsientoAsignado.Text = asientoAsignado.ToString();
+            bool esVIP = zonaObj.EsVIP;
+            List<Transaccion> transaccionesCompradas = new List<Transaccion>();
+            List<int> asientosAsignados = new List<int>();
 
-            // Paso 2: Generar correlativo con prefijo
-            string prefijo = esVIP ? "VIP" : "GEN";
-            string correlativo = GeneradorCorrelativo.ObtenerSiguiente(prefijo);
-
-            // Paso 3: Crear la transacción
-            Transaccion nuevaTransaccion = Transaccion.CrearNuevaTransaccion(
-                correlativo,
-                zonaSeleccionada,
-                asientoAsignado,
-                nombreComprador,
-                apellidoComprador,
-                direccionComprador,
-                telefono,
-                correo,
-                DateTime.Now,
-                "",
-                esVIP
-            );
-
-            // Paso 4: Encolar transacción
-            if (esVIP)
+            for (int i = 0; i < cantidadBoletos; i++)
             {
-                _colaTransaccionesVIP.Encolar(nuevaTransaccion);
-                MessageBox.Show($"Transacción VIP para {nombreComprador} encolada para procesamiento en zona '{zonaSeleccionada}'. Asiento: {asientoAsignado}", "Compra Encolada VIP", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                int asientoAsignado = _estadio.ObtenerAsientoDisponible(zonaSeleccionada);
+                if (asientoAsignado == -1) break;
+
+                string prefijo = esVIP ? "VIP" : "GEN";
+                string correlativo = GeneradorCorrelativo.ObtenerSiguiente(prefijo);
+
+                Transaccion nuevaTransaccion = Transaccion.CrearNuevaTransaccion(
+                    correlativo,
+                    zonaSeleccionada,
+                    asientoAsignado,
+                    nombreComprador,
+                    apellidoComprador,
+                    direccionComprador,
+                    telefono,
+                    correo,
+                    DateTime.Now,
+                    "",  // Código QR se puede generar después
+                    esVIP
+                );
+
+                if (esVIP)
+                    _colaTransaccionesVIP.Encolar(nuevaTransaccion);
+                else
+                    _colaTransaccionesNormal.Encolar(nuevaTransaccion);
+
+                transaccionesCompradas.Add(nuevaTransaccion);
+                asientosAsignados.Add(asientoAsignado);
+            }
+
+            if (asientosAsignados.Count > 0)
+            {
+                lblAsientoAsignado.Text = string.Join(", ", asientosAsignados);
+                string tipo = esVIP ? "VIP" : "General";
+                MessageBox.Show(
+                    $"{asientosAsignados.Count} boletos tipo {tipo} encolados para {nombreComprador}.\nAsientos: {string.Join(", ", asientosAsignados)}",
+                    "Compra Exitosa",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information
+                );
+
+                // Intentar enviar email con tickets
+                bool emailEnviado = await EmailSender.SendOrderNotificationEmailAsync(transaccionesCompradas);
+
+                if (emailEnviado)
+                {
+                    MessageBox.Show("Los boletos se enviaron por correo electrónico correctamente.", "Correo enviado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo enviar el correo con los boletos. Por favor, verifica tu conexión o los datos del correo.", "Error al enviar correo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             else
             {
-                _colaTransaccionesNormal.Encolar(nuevaTransaccion);
-                MessageBox.Show($"Transacción para {nombreComprador} encolada para procesamiento en zona '{zonaSeleccionada}'. Asiento: {asientoAsignado}", "Compra Encolada", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("No se pudo asignar ningún asiento.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
-            // Paso 5: Actualizar interfaz
             cmbZonas_SelectedIndexChanged(null, null); // Actualizar disponibilidad
+
+            // Limpiar formulario
             txtNombreComprador.Clear();
             txtApellidoComprador.Clear();
             txtDireccion.Clear();
             txtTelefono.Clear();
             txtCorreo.Clear();
+            numCantidadBoletos.Value = 1;
         }
 
+        // Métodos de validación
+
+        private bool EsCorreoValido(string email)
+        {
+            if (string.IsNullOrWhiteSpace(email))
+                return false;
+
+            try
+            {
+                // Regex básico para validar email
+                string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+                return Regex.IsMatch(email, pattern, RegexOptions.IgnoreCase);
+            }
+            catch
+            {
+                return false;
+            }
+        }
+
+        private bool EsTelefonoValido(string telefono)
+        {
+            if (string.IsNullOrWhiteSpace(telefono))
+                return false;
+
+            // Validar que tenga solo números, espacio, + o -
+            string pattern = @"^[\d\s\+\-]{7,15}$";
+            return Regex.IsMatch(telefono, pattern);
+        }
         private void DibujarMapaDeAsientos(string zonaSeleccionada)
         {
             pnlAsientos.Controls.Clear();
@@ -171,21 +247,14 @@ namespace GUI
 
             pnlAsientos.AutoScroll = true;
 
-            // Máximo filas permitidas para mejor visual
             int maxFilas = 10;
-
-            // Calculamos filas y columnas de forma dinámica
             int filas = Math.Min(maxFilas, totalAsientos);
             int columnas = (int)Math.Ceiling((double)totalAsientos / filas);
 
-            // Margen entre botones
             int margin = 5;
-
-            // Calculamos tamaño del botón en función del panel y filas/columnas
             int btnWidth = (panelWidth - (margin * (columnas + 1))) / columnas;
             int btnHeight = (panelHeight - (margin * (filas + 1))) / filas;
 
-            // Limitamos tamaño mínimo y máximo
             btnWidth = Math.Max(30, Math.Min(50, btnWidth));
             btnHeight = Math.Max(30, Math.Min(50, btnHeight));
 
@@ -212,7 +281,6 @@ namespace GUI
                         TabStop = false
                     };
 
-                    // Diferenciar VIP o no
                     if (zona.EsVIP)
                     {
                         btnAsiento.FlatAppearance.BorderColor = Color.SteelBlue;
@@ -250,6 +318,5 @@ namespace GUI
                 }
             }
         }
-
     }
 }
