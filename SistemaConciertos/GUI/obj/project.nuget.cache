@@ -1,12 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "tq71PWSY2Sk=",
+  "dgSpecHash": "BCeCDgq4vCQ=",
   "success": true,
-  "projectFilePath": "C:\\Users\\juani\\OneDrive\\Documentos\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\GUI.csproj",
+  "projectFilePath": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\GUI.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\juani\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.5\\microsoft.win32.systemevents.9.0.5.nupkg.sha512",
-    "C:\\Users\\juani\\.nuget\\packages\\system.drawing.common\\9.0.5\\system.drawing.common.9.0.5.nupkg.sha512",
-    "C:\\Users\\juani\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512"
+    "C:\\Users\\juan\\.nuget\\packages\\microsoft.win32.systemevents\\9.0.5\\microsoft.win32.systemevents.9.0.5.nupkg.sha512",
+    "C:\\Users\\juan\\.nuget\\packages\\system.drawing.common\\9.0.5\\system.drawing.common.9.0.5.nupkg.sha512",
+    "C:\\Users\\juan\\.nuget\\packages\\zxing.net\\0.16.10\\zxing.net.0.16.10.nupkg.sha512"
   ],
   "logs": []
 }
