@@ -300,6 +300,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Margin = new Padding(3, 2, 3, 2);
             Name = "BuyTicketsForm";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Comprar Boletos";
             grpComprador.ResumeLayout(false);
             grpComprador.PerformLayout();

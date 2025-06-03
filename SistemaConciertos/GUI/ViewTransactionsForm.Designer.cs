@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
             dgvTransacciones = new DataGridView();
             btnActualizar = new Button();
             pnlDetallesBoleto = new Panel();
@@ -48,40 +48,41 @@
             // 
             dgvTransacciones.AllowUserToAddRows = false;
             dgvTransacciones.AllowUserToDeleteRows = false;
-            dgvTransacciones.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTransacciones.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            dgvTransacciones.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvTransacciones.BackgroundColor = Color.FromArgb(232, 240, 254);
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.Padding = new Padding(5, 0, 5, 0);
-            dataGridViewCellStyle1.SelectionBackColor = Color.FromArgb(50, 130, 184);
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            dgvTransacciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = Color.White;
+            dataGridViewCellStyle4.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            dataGridViewCellStyle4.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle4.Padding = new Padding(5, 0, 5, 0);
+            dataGridViewCellStyle4.SelectionBackColor = Color.FromArgb(50, 130, 184);
+            dataGridViewCellStyle4.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = DataGridViewTriState.True;
+            dgvTransacciones.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             dgvTransacciones.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = SystemColors.Window;
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle2.Padding = new Padding(5, 0, 5, 0);
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
-            dgvTransacciones.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = SystemColors.Window;
+            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle5.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle5.Padding = new Padding(5, 0, 5, 0);
+            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.False;
+            dgvTransacciones.DefaultCellStyle = dataGridViewCellStyle5;
             dgvTransacciones.GridColor = SystemColors.Window;
             dgvTransacciones.Location = new Point(1, 71);
             dgvTransacciones.Margin = new Padding(3, 2, 3, 2);
             dgvTransacciones.Name = "dgvTransacciones";
             dgvTransacciones.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = SystemColors.Control;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(50, 130, 184);
-            dataGridViewCellStyle3.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.True;
-            dgvTransacciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = SystemColors.Control;
+            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(50, 130, 184);
+            dataGridViewCellStyle6.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.True;
+            dgvTransacciones.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             dgvTransacciones.RowHeadersWidth = 51;
             dgvTransacciones.Size = new Size(1139, 206);
             dgvTransacciones.TabIndex = 0;
@@ -89,12 +90,11 @@
             // 
             // btnActualizar
             // 
-            btnActualizar.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             btnActualizar.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.Location = new Point(789, 549);
+            btnActualizar.Location = new Point(762, 356);
             btnActualizar.Margin = new Padding(3, 2, 3, 2);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(195, 73);
+            btnActualizar.Size = new Size(195, 44);
             btnActualizar.TabIndex = 1;
             btnActualizar.Text = "Actualizar Lista";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -102,11 +102,10 @@
             // 
             // pnlDetallesBoleto
             // 
-            pnlDetallesBoleto.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pnlDetallesBoleto.BorderStyle = BorderStyle.FixedSingle;
             pnlDetallesBoleto.Controls.Add(txtDetalleBoleto);
             pnlDetallesBoleto.Controls.Add(pbQRCode);
-            pnlDetallesBoleto.Location = new Point(194, 356);
+            pnlDetallesBoleto.Location = new Point(181, 333);
             pnlDetallesBoleto.Margin = new Padding(3, 2, 3, 2);
             pnlDetallesBoleto.Name = "pnlDetallesBoleto";
             pnlDetallesBoleto.Size = new Size(306, 298);
@@ -125,6 +124,7 @@
             // 
             // pbQRCode
             // 
+            pbQRCode.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             pbQRCode.BorderStyle = BorderStyle.FixedSingle;
             pbQRCode.Location = new Point(69, 10);
             pbQRCode.Margin = new Padding(3, 2, 3, 2);
@@ -136,10 +136,9 @@
             // 
             // label1
             // 
-            label1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(299, 306);
+            label1.Location = new Point(292, 291);
             label1.Name = "label1";
             label1.Size = new Size(108, 25);
             label1.TabIndex = 3;
@@ -147,10 +146,9 @@
             // 
             // label2
             // 
-            label2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI Semibold", 11.25F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 0);
-            label2.Location = new Point(674, 517);
+            label2.Location = new Point(657, 310);
             label2.Name = "label2";
             label2.Size = new Size(406, 20);
             label2.TabIndex = 4;
@@ -158,7 +156,6 @@
             // 
             // label3
             // 
-            label3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.Location = new Point(497, 21);
