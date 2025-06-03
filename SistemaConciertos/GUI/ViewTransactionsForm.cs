@@ -6,7 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using BLL.Clases;
-using BLL.EstructuraDatos; // Asegúrate de que esta referencia sea correcta para tu ColaDinamica
+using BLL.EstructuraDatos; 
 using BLL.Utils;
 
 namespace GUI

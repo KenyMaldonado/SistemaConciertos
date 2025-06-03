@@ -19,13 +19,13 @@ namespace BLL.Clases
             EsVIP = true; // Marca este boleto como VIP
         }
 
-        // Sobrescribe el método ToString() para incluir beneficios VIP
+        
         public override string ToString()
         {
             return $"{base.ToString()}, Beneficios VIP: {BeneficiosAdicionales}";
         }
 
-        // Sobrescribe MostrarInformacion() para añadir beneficios VIP al detalle
+        
         public override string MostrarInformacion()
         {
             StringBuilder info = new StringBuilder(base.MostrarInformacion());

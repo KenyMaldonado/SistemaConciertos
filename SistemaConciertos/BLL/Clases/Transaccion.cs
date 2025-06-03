@@ -1,6 +1,6 @@
 ﻿using System;
-using BLL.Utils;   // Para QRGenerator y FileManager
-using BLL.Clases;  // Para Boleto y BoletoVIP
+using BLL.Utils;   
+using BLL.Clases;  
 
 namespace BLL.Clases
 {
@@ -99,7 +99,9 @@ namespace BLL.Clases
             if (Estado == EstadoTransaccion.Pendiente)
             {
                 // Generar el código QR
-                string qrData = $"ID: {IdTransaccion}, Zona: {BoletoComprado.Zona}, Asiento: {BoletoComprado.Asiento}, Comprador: {BoletoComprado.NombreComprador}";
+                string qrData = $"ID: {IdTransaccion}, Zona: {BoletoComprado.Zona}, Asiento: {BoletoComprado.Asiento}, Nombre Comprador: {BoletoComprado.NombreComprador} , Apellido Comprador: {BoletoComprado.ApellidoComprador}, Direccion Comprador: {BoletoComprado.DireccionComprador}" +
+                    $" FechaCompra: {BoletoComprado.FechaHoraCompra}";
+               
                 string qrFilePath = QRGenerator.GenerarQR(qrData, IdTransaccion.ToString());
                 BoletoComprado.CodigoQR = qrFilePath;
 

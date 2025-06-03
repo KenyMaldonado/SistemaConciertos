@@ -1,19 +1,19 @@
-using System; // Agrega este using si no lo tienes
-using System.Collections.Generic; // Agrega este using si no lo tienes
-using System.Linq; // Agrega este using para usar .Max() y .Any()
-using System.Windows.Forms; // Ya debería estar
-using System.Collections.Concurrent; // Para ConcurrentQueue
-using BLL.EstructuraDatos; // Para ColaDinamica
-using BLL.Clases; // Para Estadio, Transaccion, Boleto, Zona
-using BLL.Utils; // Para FileManager
+using System; 
+using System.Collections.Generic; 
+using System.Linq; 
+using System.Windows.Forms; 
+using System.Collections.Concurrent; 
+using BLL.EstructuraDatos; 
+using BLL.Clases; 
+using BLL.Utils; 
 
 namespace GUI
 {
     public partial class MainForm : Form
     {
-        // Instancias centrales que serán accesibles desde otros formularios
+        
         public Estadio Estadio { get; private set; }
-        // Se recomienda usar ConcurrentQueue para hilos seguros, si no, mantén ColaDinamica
+        
         public ColaDinamica<Transaccion> ColaTransacciones { get; private set; }
         public ColaDinamica<Transaccion> ColaTransaccionesVIP { get; private set; } // Para prioridades VIP
         public List<Transaccion> TransaccionesProcesadas { get; private set; }
@@ -53,16 +53,10 @@ namespace GUI
 
                 if (transaccionesCargadas.Any())
                 {
-                    // Agrega las transacciones cargadas a tu lista de transacciones procesadas
+                    
                     TransaccionesProcesadas.AddRange(transaccionesCargadas);
 
-                    // *** MUY IMPORTANTE: Actualizar el próximo número correlativo ***
-                    // Esto asegura que los nuevos IDs de boletos/transacciones no se dupliquen con los ya guardados.
-                    // Si tu Transaccion es la que lleva el ID principal:
-                    // Necesitarás un método estático en Transaccion para establecer el próximo ID.
-                   
-                    // Si Boleto.NumeroCorrelativo es el que garantiza unicidad a nivel de transacción:
-                    // Boleto.SetProximoNumeroCorrelativo(transaccionesCargadas.Max(t => t.NumeroCorrelativo));
+                    
                 }
 
                 MessageBox.Show("Datos cargados exitosamente.", "Carga de Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -70,7 +64,7 @@ namespace GUI
             catch (Exception ex)
             {
                 MessageBox.Show($"Error al cargar datos: {ex.Message}", "Error de Carga", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                // Aquí podrías loggear el error para depuración
+                
             }
         }
 
@@ -79,21 +73,10 @@ namespace GUI
         {
             try
             {
-                // 1. Guardar el estado actual del estadio (disponibilidad de asientos)
-                // Esto asegura que la próxima vez que inicie el programa, sepa cuántos boletos quedan.
+                
                 FileManager.GuardarEstadoEstadio(Estadio);
 
-                // 2. Las transacciones individuales ya se guardan en el archivo de transacciones
-                // cuando se procesan (probablemente en el método ProcesarTransaccion de la clase Transaccion).
-                // Por lo tanto, no es necesario iterar sobre TransaccionesProcesadas y volver a guardarlas aquí,
-                // a menos que tu lógica de "guardar transacción" sea diferente y solo se haga al cerrar.
-                // Si la lógica de GuardarTransaccion ya está bien, aquí no hacemos nada con la lista.
-
-                // Opcional: Si quieres guardar las transacciones que quedaron en cola (pendientes)
-                // en un archivo separado para ser procesadas en la próxima ejecución, lo harías aquí.
-                // Por simplicidad, asumimos que las transacciones en cola no se persisten automáticamente
-                // y se perderán si no se procesan antes de cerrar.
-
+                
                 MessageBox.Show("Datos guardados exitosamente.", "Guardar Datos", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -101,9 +84,7 @@ namespace GUI
                 MessageBox.Show($"Error al guardar datos: {ex.Message}", "Error al Guardar", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 // Aquí podrías loggear el error para depuración
             }
-            // Application.Exit() ya está en menuItemSalir_Click.
-            // Si quieres que la aplicación se cierre sin preguntar después de guardar,
-            // no llames a Application.Exit() aquí, deja que el sistema cierre el formulario.
+            
         }
 
 
@@ -153,10 +134,7 @@ namespace GUI
             // Instancia el ConcurrencySimForm y le pasa las referencias
             _concurrencySimForm = new ConcurrencySimForm(ColaTransacciones, ColaTransaccionesVIP, TransaccionesProcesadas);
 
-            // Si tienes un panel en MainForm para cargar formularios dentro:
-            // CargarFormularioEnPanel(_concurrencySimForm); 
-
-            // Si lo abres como una ventana separada (lo más común para este tipo de simulación):
+            
             _concurrencySimForm.Show();
         }
 

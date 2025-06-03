@@ -7,22 +7,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using BLL.Clases; // Para Transaccion, Boleto, EstadoTransaccion
-using BLL.EstructuraDatos; // Para ColaDinamica
+using BLL.Clases;
+using BLL.EstructuraDatos; 
 using System.Threading;
-using BLL.Utils; // Para el Timer y el manejo de hilos (opcionalmente)
+using BLL.Utils; 
 
 namespace GUI
 {
     public partial class ConcurrencySimForm : Form
     {
-        // Referencias a las colas y a la lista de transacciones procesadas
+        
         private ColaDinamica<Transaccion> _colaTransaccionesNormal;
         private ColaDinamica<Transaccion> _colaTransaccionesVIP;
-        private List<Transaccion> _transaccionesProcesadas; // Esta es la lista compartida de MainForm
+        private List<Transaccion> _transaccionesProcesadas; 
 
-        // Opcional: Un Timer para procesamiento automático (lo haremos manual por ahora)
-        // private System.Windows.Forms.Timer _processingTimer;
+        
 
         public ConcurrencySimForm(ColaDinamica<Transaccion> colaNormal, ColaDinamica<Transaccion> colaVIP, List<Transaccion> transaccionesProcesadas)
         {
@@ -31,21 +30,20 @@ namespace GUI
             _colaTransaccionesVIP = colaVIP;
             _transaccionesProcesadas = transaccionesProcesadas;
 
-            // Configura el formulario al cargar
+            
             this.Load += ConcurrencySimForm_Load;
         }
 
         private void ConcurrencySimForm_Load(object sender, EventArgs e)
         {
-            // Inicializar la UI
+            
             ActualizarContadoresColas();
-            // Si quieres auto-procesamiento, aquí podrías iniciar el timer:
-            // ConfigurarTimerProcesamiento();
+           
         }
 
-        // --- Métodos de Procesamiento de Transacciones ---
+      
 
-        // Método para procesar una sola transacción (manual)
+        
         private async Task ProcesarSiguienteTransaccion()
         {
             Transaccion transaccionAProcesar = null;
@@ -133,9 +131,7 @@ namespace GUI
         }
 
 
-        // --- Métodos de Actualización de UI ---
-
-        // Método para actualizar los labels que muestran la cantidad de transacciones en cola
+        
         private void ActualizarContadoresColas()
         {
             lblNormalQueueCount.Text = $"Normal: {_colaTransaccionesNormal.Count}";
@@ -154,33 +150,6 @@ namespace GUI
             ProcesarTodasLasTransacciones();
         }
 
-        // --- Configuración Opcional para Auto-Procesamiento (si lo deseas en el futuro) ---
-        /*
-        private void ConfigurarTimerProcesamiento()
-        {
-            _processingTimer = new System.Windows.Forms.Timer();
-            _processingTimer.Interval = 2000; // Procesar cada 2 segundos
-            _processingTimer.Tick += ProcessingTimer_Tick;
-            // No lo iniciamos automáticamente, un botón para iniciar/detener sería mejor
-        }
-
-        private void ProcessingTimer_Tick(object sender, EventArgs e)
-        {
-            // Este método se llamará automáticamente cada 'Interval' ms
-            ProcesarSiguienteTransaccion(); // Procesa una a la vez
-        }
-
-        private void btnStartAutoProcess_Click(object sender, EventArgs e)
-        {
-            _processingTimer.Start();
-            MessageBox.Show("Procesamiento automático iniciado.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        private void btnStopAutoProcess_Click(object sender, EventArgs e)
-        {
-            _processingTimer.Stop();
-            MessageBox.Show("Procesamiento automático detenido.", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        */
+        
     }
 }
