@@ -3,32 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\concurrencysimform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\concurrencysimform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\buyticketsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|c:\\users\\juan\\documents\\github\\sistemaconciertos\\sistemaconciertos\\bll\\clases\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{DFF2CC87-B134-4032-86D5-347B6688E316}|BLL\\BLL.csproj|solutionrelative:bll\\clases\\transaccion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{406C99B9-67DC-4BF4-B5E8-13F4DF61471E}|GUI\\GUI.csproj|solutionrelative:gui\\viewtransactionsform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,11 +22,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 12,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\MainForm.cs",
               "RelativeDocumentMoniker": "GUI\\MainForm.cs",
@@ -52,19 +36,6 @@
               "WhenOpened": "2025-06-03T00:55:00.938Z",
               "IsPinned": true,
               "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BuyTicketsForm.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
-              "RelativeDocumentMoniker": "GUI\\BuyTicketsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs*",
-              "RelativeToolTip": "GUI\\BuyTicketsForm.cs*",
-              "ViewState": "AgIAAB0AAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T09:38:06.786Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Bookmark",
@@ -105,43 +76,6 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "ConcurrencySimForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ConcurrencySimForm.cs",
-              "RelativeDocumentMoniker": "GUI\\ConcurrencySimForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ConcurrencySimForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "GUI\\ConcurrencySimForm.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-03T00:07:44.369Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "BuyTicketsForm.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs",
-              "RelativeDocumentMoniker": "GUI\\BuyTicketsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\BuyTicketsForm.cs [Dise\u00F1o]*",
-              "RelativeToolTip": "GUI\\BuyTicketsForm.cs [Dise\u00F1o]*",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T22:05:49.872Z",
-              "EditorCaption": " [Dise\u00F1o]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "ViewTransactionsForm.cs",
-              "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
-              "RelativeDocumentMoniker": "GUI\\ViewTransactionsForm.cs",
-              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
-              "RelativeToolTip": "GUI\\ViewTransactionsForm.cs",
-              "ViewState": "AgIAAFIAAAAAAAAAAAA5wH0AAAANAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T21:30:17.749Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
               "Title": "Transaccion.cs",
               "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\BLL\\Clases\\Transaccion.cs",
               "RelativeDocumentMoniker": "BLL\\Clases\\Transaccion.cs",
@@ -153,14 +87,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "ViewTransactionsForm.cs [Dise\u00F1o]",
               "DocumentMoniker": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs",
               "RelativeDocumentMoniker": "GUI\\ViewTransactionsForm.cs",
-              "ToolTip": "C:\\Users\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\kenet\\Downloads\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
+              "ToolTip": "C:\\Users\\juan\\Documents\\GitHub\\SistemaConciertos\\SistemaConciertos\\GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
+              "RelativeToolTip": "GUI\\ViewTransactionsForm.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-02T21:04:21.925Z"
+              "WhenOpened": "2025-06-02T21:04:21.925Z",
+              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }
